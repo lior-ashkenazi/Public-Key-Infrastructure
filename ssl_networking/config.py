@@ -1,0 +1,5 @@
+PORT = 1234
+
+IP_PREFIX = "127.0.0."
+
+CHUNK_SIZE = 4096
