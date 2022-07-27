@@ -6,13 +6,21 @@ import os
 import shutil
 
 
+def delete_certificates_folder():
+    """
+    Deletes the Certificate entities' folder
+    :return:
+    """
+    if os.path.exists(CERTS_DIR):
+        shutil.rmtree(CERTS_DIR)
+
+
 def create_certificates_folder():
     """
     Creates the Certificate entities' folder
     :return:
     """
-    if os.path.exists(CERTS_DIR):
-        shutil.rmtree(CERTS_DIR)
+    delete_certificates_folder()
     os.makedirs(CERTS_DIR)
 
 
@@ -27,7 +35,7 @@ def print_instructions():
     print("\tsend - Send a message")
     print("\tshow - Show entities")
     print('\trevoke - Revoke an entity of your choice')
-    print("\thelp - Print this instructions again")
+    print("\thelp - Print these instructions again")
     print("\tquit - Quit the program")
 
 
@@ -38,7 +46,7 @@ cmds = {"generate": Controller.generate, "send": Controller.send_message,
 if __name__ == '__main__':
     create_certificates_folder()
     print_instructions()
-    print("Note: Enter an entity by entering it's ID which is the number it is given. "
+    print("Note: Enter an entity by entering it's ID which is the number it is given.\n"
           "For example, Entity1 has an ID 1, so enter 1 for relevant commands.")
     print("Very well!")
     while True:
